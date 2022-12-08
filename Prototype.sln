@@ -5,7 +5,12 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype.Android", "Prototype.Android\Prototype.Android.csproj", "{BB81AC40-D200-456D-9F4D-ACC7DC8DF11A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype", "Prototype\Prototype.csproj", "{CFA2E6D1-EEEC-4D39-B19A-BD9FCFA00995}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prototype", "Prototype\Prototype.csproj", "{CFA2E6D1-EEEC-4D39-B19A-BD9FCFA00995}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{E1CB1663-DD09-4355-AE34-9FB4EF2ECD15}"
+	ProjectSection(SolutionItems) = preProject
+		reamde.md = reamde.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
