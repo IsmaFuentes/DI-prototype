@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Profile"
+             x:Class="Prototype.pages.ProfilePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--PROFILE INFO-->
+            <StackLayout HorizontalOptions="Center" Margin="0,10,0,10">
+                <Image WidthRequest="150" Source="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" Aspect="AspectFill"/>
+                <Label Text="username1" HorizontalOptions="Center" FontSize="Title"/>
+                <Label Text="username@gmail.com" HorizontalOptions="Center" FontSize="Subtitle"/>
+            </StackLayout>
+            <ScrollView Padding="20,10,20,10">
+                <!--GRID-->
+                <Grid x:Name="ProfileGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--GRID CONTENT-->
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

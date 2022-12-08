@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Feed"
+             x:Class="Prototype.pages.FeedPage" NavigationPage.HasBackButton="False">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Secondary" Priority="1" Text="Profile" Clicked="ProfileClick"/>
+        <ToolbarItem Order="Secondary" Priority="2" Text="Settings" Clicked="SettingsClick"/>
+        <ToolbarItem Order="Secondary" Priority="3" Text="Logout" Clicked="LogoutClick"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <!--SEARCHBAR-->
+            <SearchBar x:Name="searchBar" Margin="10,0,45,0"/>
+            <ScrollView Padding="20" Margin="0,10,0,0">
+                <!--GRID-->
+                <Grid x:Name="FeedGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <!--GRID CONTENT-->
+                    <!--
+                    <Image Grid.Row="0" Grid.Column="0" Source="https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder-1024x512.png" Aspect="AspectFill">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnDetailClick" NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    -->
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

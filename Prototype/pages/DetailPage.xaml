@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Prototype.pages.DetailPage">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Label x:Name="subtitleLabel" FontSize="Title" FontAttributes="Bold"/>
+            <Label x:Name="timestampLabel" FontSize="Small"/>
+            <ScrollView>
+                <Label x:Name="contentLabel" HorizontalTextAlignment="Start"/>
+            </ScrollView>
+            <FlexLayout VerticalOptions="Center" JustifyContent="Center">
+                <Button x:Name="like" Text="Like" IsVisible="true"/>
+                <Button x:Name="reply" Text="Reply" IsVisible="true"/>
+                <Button x:Name="edit" Text="Edit" Clicked="onDetailEdit" IsVisible="false"/>
+            </FlexLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Settings"
+             x:Class="Prototype.pages.SettingsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <!--SECTION 1-->
+            <StackLayout Padding="10">
+                <Label Text="Section 1"/>
+                <FlexLayout>
+                    <CheckBox/>
+                    <Label Text="setting 1" VerticalTextAlignment="Center"/>
+                </FlexLayout>
+            </StackLayout>
+
+            <!--SEPARATOR-->
+            <BoxView 
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                HeightRequest="1"
+                WidthRequest="300"  
+                Color="#5b5d68"
+            />
+
+            <!--SECTION 2-->
+            <StackLayout Padding="10">
+                <Label Text="Section 2"/>
+                <FlexLayout>
+                    <CheckBox/>
+                    <Label Text="setting 1" VerticalTextAlignment="Center"/>
+                </FlexLayout>
+                <FlexLayout>
+                    <CheckBox/>
+                    <Label Text="setting 2" VerticalTextAlignment="Center"/>
+                </FlexLayout>
+                <FlexLayout>
+                    <CheckBox/>
+                    <Label Text="setting 3" VerticalTextAlignment="Center"/>
+                </FlexLayout>
+            </StackLayout>
+
+            <!--SEPARATOR-->
+            <BoxView 
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                HeightRequest="1"
+                WidthRequest="300"  
+                Color="#5b5d68"
+            />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
