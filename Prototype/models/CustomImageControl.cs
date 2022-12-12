@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace Prototype.models
@@ -8,6 +6,9 @@ namespace Prototype.models
     public class CustomImageControl : Image
     {
         private Dictionary<string, object> data = new Dictionary<string, object>();
+        
+        public int gridRow { get; set; }
+        public int gridCol { get; set; }
 
         public void set(string key, object o)
         {
