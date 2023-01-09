@@ -7,7 +7,7 @@
             <Label x:Name="subtitleLabel" FontSize="Title" FontAttributes="Bold"/>
             <Label x:Name="timestampLabel" FontSize="Small"/>
             <ScrollView>
-                <Label x:Name="contentLabel" HorizontalTextAlignment="Start"/>
+                <Label x:Name="contentLabel" LineBreakMode="WordWrap" TextType="Html" TextColor="Black"/>
             </ScrollView>
             <FlexLayout VerticalOptions="Center" JustifyContent="Center">
                 <Button x:Name="like" Text="Like" IsVisible="true"/>

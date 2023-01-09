@@ -8,6 +8,7 @@ namespace Prototype.models
         public string user { get; set; }
         public string title { get; set; }
         public string subtitle { get; set; }
+        public string imageUrl { get; set; }
         public DateTime timestamp { get; set; }
         public string detailContent { get; set; }
     }

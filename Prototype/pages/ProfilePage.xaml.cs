@@ -1,13 +1,9 @@
-﻿using Prototype.helpers;
-using Prototype.models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Prototype.helpers;
+using Prototype.models;
+using Prototype.controls;
 
 namespace Prototype.pages
 {
@@ -17,6 +13,12 @@ namespace Prototype.pages
         public ProfilePage()
         {
             InitializeComponent();
+
+            var user = ApplicationState.GetValue<User>("user");
+
+            username.Text = user.username;
+            email.Text = user.email;
+            profilePicture.Source = user.imageUrl;
 
             int columns = 3;
             int rows = new Random().Next(3, 5);
@@ -28,7 +30,7 @@ namespace Prototype.pages
                 {
                     var image = new CustomImageControl() { Source = "https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder-1024x512.png", Aspect = Aspect.AspectFill };
 
-                    image.set("detail", new Detail()
+                    image.setDetail(new Detail()
                     {
                         _id = Guid.NewGuid(),
                         user = $"Username-{index}",
@@ -44,9 +46,9 @@ namespace Prototype.pages
 
                     gestureRecognizer.Tapped += (object sender, EventArgs e) =>
                     {
-                        var det = ((CustomImageControl)sender).get("detail");
+                        var det = ((CustomImageControl)sender).getDetail();
 
-                        Navigation.PushAsync(new DetailPage((Detail)det, true));
+                        Navigation.PushAsync(new DetailPage(det, true));
                     };
 
                     image.GestureRecognizers.Add(gestureRecognizer);

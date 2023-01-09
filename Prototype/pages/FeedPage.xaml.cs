@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Prototype.helpers;
-using Prototype.models;
+using Prototype.views;
 
 namespace Prototype.pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FeedPage : ContentPage
     {
-        private List<CustomImageControl> clickableImages = new List<CustomImageControl>();
+        private List<DetailView> mockupData = new List<DetailView>();
         public FeedPage()
         {
             InitializeComponent();
@@ -22,9 +22,9 @@ namespace Prototype.pages
             {
                 string filter = ((SearchBar)sender).Text.ToLower();
 
-                var results = clickableImages.Where(image =>
+                var results = mockupData.Where(dtView =>
                 {
-                    var detail = image.get("detail") as Detail;
+                    var detail = dtView.getDetail();
 
                     return detail.detailContent.ToLower().Contains(filter) || 
                            detail.title.ToLower().Contains(filter) || 
@@ -42,55 +42,32 @@ namespace Prototype.pages
         }
 
         private int rows { get; set; }
-        private int cols { get; set; } = 3;
+        private int cols { get; set; } = 1;
 
         private void LoadInitialData()
         {
-            rows = new Random().Next(3, 10);
-            int index = 0;
-
-            string imageSource = "https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder-1024x512.png";
+            rows = new Random().Next(3, 20);
 
             for (int row = 0; row < rows; row++)
             {
                 for (int col = 0; col < cols; col++)
                 {
-                    var image = new CustomImageControl() { Source = imageSource, Aspect = Aspect.AspectFill };
+                    var detail = MockupGenerator.GenerateDetail();
 
-                    var detail = new Detail()
-                    {
-                        _id = Guid.NewGuid(),
-                        user = $"Username-{index}",
-                        title = $"Detail title {index}",
-                        subtitle = $"Detail subtitle {index}",
-                        timestamp = DateTime.Now,
-                        detailContent = TextGenerator.GenerateBlobOfText(),
-                    };
+                    var detailView = new DetailView($"{detail.title} - {detail.user}", detail.imageUrl);
 
-                    image.set("detail", detail);
-                    index++;
+                    detailView.setDetail(detail);
+                    detailView.gridCol = col;
+                    detailView.gridRow = row;
 
-                    var gestureRecognizer = new TapGestureRecognizer() { NumberOfTapsRequired = 1 };
+                    mockupData.Add(detailView);
 
-                    gestureRecognizer.Tapped += (object sender, EventArgs e) =>
-                    {
-                        var det = ((CustomImageControl)sender).get("detail");
-
-                        Navigation.PushAsync(new DetailPage((Detail)det));
-                    };
-
-                    image.GestureRecognizers.Add(gestureRecognizer);
-                    image.gridCol = col;
-                    image.gridRow = row;
-
-                    clickableImages.Add(image);
-
-                    FeedGrid.Children.Add(image, col, row);
+                    FeedGrid.Children.Add(detailView, col, row);
                 }
             }
         }
 
-        private void SetNewData(List<CustomImageControl> details)
+        private void SetNewData(List<DetailView> details)
         {
             FeedGrid.Children.Clear();
 
@@ -122,7 +99,7 @@ namespace Prototype.pages
         {
             FeedGrid.Children.Clear();
 
-            clickableImages.ForEach(detail => FeedGrid.Children.Add(detail, detail.gridCol, detail.gridRow));
+            mockupData.ForEach(detail => FeedGrid.Children.Add(detail, detail.gridCol, detail.gridRow));
         }
 
         private void LogoutClick(object sender, EventArgs e)

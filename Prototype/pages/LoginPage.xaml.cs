@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
+using Prototype.models;
 
 namespace Prototype.pages
 {
@@ -13,16 +9,30 @@ namespace Prototype.pages
         public LoginPage()
         {
             InitializeComponent();
-        }
 
-        public void OnLoginSuccess()
-        {
-            Navigation.PushAsync(new FeedPage());
+            password.Completed += LoginOnClick;
         }
 
         private void LoginOnClick(object sender, EventArgs e)
         {
-            OnLoginSuccess();
+            string user = username.Text?.Trim();
+            string pass = password.Text?.Trim();
+
+            if (CheckCredentials(user, pass))
+            {
+                ApplicationState.AddValue("user", new User(user, pass));
+
+                Navigation.PushAsync(new FeedPage());
+            }
+            else
+            {
+                this.DisplayAlert("Credenciales incorrectas", "Credenciales de acceso incorrectas.", "Aceptar");
+            }
+        }
+
+        private bool CheckCredentials(string username, string password)
+        {
+            return username == "admin" && password == "admin";
         }
     }
 }

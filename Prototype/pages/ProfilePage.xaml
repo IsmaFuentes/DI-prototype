@@ -6,10 +6,10 @@
     <ContentPage.Content>
         <StackLayout>
             <!--PROFILE INFO-->
-            <StackLayout HorizontalOptions="Center" Margin="0,10,0,10">
-                <Image WidthRequest="150" Source="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" Aspect="AspectFill"/>
-                <Label Text="username1" HorizontalOptions="Center" FontSize="Title"/>
-                <Label Text="username@gmail.com" HorizontalOptions="Center" FontSize="Subtitle"/>
+            <StackLayout HorizontalOptions="Center" Margin="0,20,0,10">
+                <Image x:Name="profilePicture" WidthRequest="150" HeightRequest="150" Aspect="AspectFill"/>
+                <Label x:Name="username" HorizontalOptions="Center" FontSize="Title"/>
+                <Label x:Name="email" HorizontalOptions="Center" FontSize="Subtitle"/>
             </StackLayout>
             <ScrollView Padding="20,10,20,10">
                 <!--GRID-->
@@ -24,7 +24,6 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-
                     <!--GRID CONTENT-->
                 </Grid>
             </ScrollView>
