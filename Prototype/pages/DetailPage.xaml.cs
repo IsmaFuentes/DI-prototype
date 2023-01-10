@@ -19,14 +19,14 @@ namespace Prototype.pages
 
             this.detail = detail;
 
-            this.Title = detail.title;
-            this.subtitleLabel.Text = $"{detail.subtitle}";
+            this.Title = "Post";
+            this.subtitleLabel.Text = $"{detail.title}";
             this.timestampLabel.Text = $"{detail.user} - {detail.timestamp.ToShortDateString()}";
             this.contentLabel.Text = detail.detailContent;
 
             if (allowEditing)
             {
-                reply.IsVisible = false;
+                dislike.IsVisible = false;
                 like.IsVisible = false;
                 edit.IsVisible = true;
             }

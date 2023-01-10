@@ -22,8 +22,8 @@ namespace Prototype.pages
         {
             InitializeComponent();
 
-            title.Text = detail.title;
-            subtitle.Text = detail.subtitle;
+            title.Text = "Post";
+            subtitle.Text = detail.title;
             timestamp.Date = detail.timestamp;
             detailContent.Text = detail.detailContent;
         }

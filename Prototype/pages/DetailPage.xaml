@@ -11,7 +11,7 @@
             </ScrollView>
             <FlexLayout VerticalOptions="Center" JustifyContent="Center">
                 <Button x:Name="like" Text="Like" IsVisible="true"/>
-                <Button x:Name="reply" Text="Reply" IsVisible="true"/>
+                <Button x:Name="dislike" Text="Dislike" IsVisible="true"/>
                 <Button x:Name="edit" Text="Edit" Clicked="onDetailEdit" IsVisible="false"/>
             </FlexLayout>
         </StackLayout>

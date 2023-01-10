@@ -46,7 +46,7 @@ namespace Prototype.pages
 
         private void LoadInitialData()
         {
-            rows = new Random().Next(3, 20);
+            rows = new Random().Next(10, 30);
 
             for (int row = 0; row < rows; row++)
             {
@@ -54,7 +54,7 @@ namespace Prototype.pages
                 {
                     var detail = MockupGenerator.GenerateDetail();
 
-                    var detailView = new DetailView($"{detail.title} - {detail.user}", detail.imageUrl);
+                    var detailView = new DetailView($"{detail.user} | {detail.title}", detail.imageUrl);
 
                     detailView.setDetail(detail);
                     detailView.gridCol = col;
@@ -82,7 +82,7 @@ namespace Prototype.pages
 
                     colCount++;
 
-                    if (colCount == 3)
+                    if (colCount == 1)
                     {
                         rowCount++;
                         colCount = 0;

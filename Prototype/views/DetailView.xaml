@@ -3,9 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Prototype.views.DetailView">
   <ContentView.Content>
-      <StackLayout>
-            <Image x:Name="Image" HeightRequest="200"/>
-            <Label x:Name="Title"/>
-        </StackLayout>
-  </ContentView.Content>
+        <Frame>
+            <StackLayout Padding="10">
+                <Image x:Name="Image" HeightRequest="200"/>
+                <StackLayout Padding="0,10,0,0">
+                    <Label x:Name="Title" FontAttributes="Bold"/>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </ContentView.Content>
 </ContentView>

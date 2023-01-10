@@ -28,14 +28,13 @@ namespace Prototype.pages
             {
                 for (int col = 0; col < columns; col++)
                 {
-                    var image = new CustomImageControl() { Source = "https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder-1024x512.png", Aspect = Aspect.AspectFill };
+                    var image = new CustomImageControl() { Source = MockupGenerator.GetRandomImageUrl(), Aspect = Aspect.AspectFill };
 
                     image.setDetail(new Detail()
                     {
                         _id = Guid.NewGuid(),
-                        user = $"Username-{index}",
-                        title = $"Detail title {index}",
-                        subtitle = $"Detail subtitle {index}",
+                        user = user.username,
+                        title = MockupGenerator.GetRandomTitle(),
                         timestamp = DateTime.Now,
                         detailContent = TextGenerator.GenerateBlobOfText(),
                     });
